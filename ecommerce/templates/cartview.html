@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container" style="margin-bottom:100px;">
+    <div class="row">
+        <h4 class="text-center mt-3">Shopping Cart</h4>
+        <div class="col-6 mt-3">
+            <table class="table table-bordered text-center bg-light border-dark">
+                <tr>
+                    <th colspan="5">Cart Items</th>
+                </tr>
+                {% for i in  c %}
+                <tr>
+                    <td>
+                        <img src="{{i.product.image.url}}" height="150px" width="150px">
+                        <td>{{i.product.name}}</td>
+
+                    <td><b>Prod.Id:{{i.product.id}}</b><br>
+<!--                        #attribute-->
+                        <b>Prod.Price.{{i.product.price}}</b><br>
+<!--                    <b>Quantity:{{i.quantity}}*{{i.product.price}}</b><br>-->
+                   </td>
+                    <td>
+                        <b>Qty:<br>{{i.quantity}}</b>
+                    </td>
+                    <td><b>{{i.subtotal}}</b></td>
+                    <td>
+                    {% if i.quantity < i.product.stock %}
+                    <a href="{% url 'cart:addtocart' i.product.name %}" ><i class="fas fa-plus-circle" style="color: green;"></i></a>
+                    <a href="{% url 'cart:cartremove' i.product.name %}" > <i class="fa-solid fa-circle-minus"style="color:red;" ></i></a>
+                    <a href="{% url 'cart:carttrash' i.product.name %}" > <i class="fa-solid fa-trash"></i></a>
+
+                    {% else %}
+
+                    <a href="{% url 'cart:cartremove' i.product.name %}" > <i class="fa-solid fa-circle-minus" ></i></a>
+                    <a href="{% url 'cart:carttrash' i.product.name %}" > <i class="fa-solid fa-trash"></i></a>
+
+
+                    {% endif %}</td>
+                </tr>
+                {% endfor %}
+            </table></div>
+
+        <div class="col-3 ms-3 mt-3 ">
+            <table class="table table-bordered text-center table-striped-columns bg-light border-dark">
+            <tr>
+                <th colspan="5">Check Out</th>
+            </tr>
+                <tr><th>Total Amount:<span style="">{{total}}</span></th></tr>
+
+                </table>
+            <div class="d-flex justify-content-evenly">
+            <a href="{% url 'cart:orderform' %}" class="btn btn-outline-danger">Place Order</a>
+            <a href="{% url 'shop:allcat' %}" class="btn btn-outline-danger"  >Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

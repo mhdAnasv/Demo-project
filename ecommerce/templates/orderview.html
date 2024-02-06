@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row mt-5 border">
+            <h4 class="text-center text-danger"> Name of the costomer:{{u}}</h4>
+            {% for i in o %}
+        <div class="col-sm-4 me-5">
+    <img src="{{i.image.url}}"height="300px;" width="300px;">
+    </div>
+        <div class="col-sm-4 me-5 text-center border" >
+            <b>Product name:{{i.product.name}}</b><br>
+            <b> Price:{{i.product.price}}</b><br>
+            <b>Delivery Address:{{i.address}}</b><br>
+            <b>Customer Phone:{{i.phone}}</b><br>
+            <b>Ordered On:{{i.ordered_date}}</b><br>
+            <b class="text-success">Delivery Status:{{i.delivery.status}}</b>
+
+        </div>{% endfor %}
+</div>
+</div>
+{% endblock %}

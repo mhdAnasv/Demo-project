@@ -1,0 +1,53 @@
+
+body{
+font-family: 'Dancing Script', cursive;
+font-family: 'Overpass', sans-serif;
+font-style normal;
+text-color white;
+background-color:#f2f2f2;
+}
+
+.footer
+{
+height:100px;
+width:100px;
+text-align:center;
+background-color:white;
+position:fixed;
+bottom:0;
+left:0;
+margin: 0 auto;
+}
+
+
+.navbar-light .navbar nav .nav-link {
+    color:blue;
+    font-weight:bold;
+}
+
+.form-control
+{
+width:60%;
+}
+.card{
+    background-color: rgba(255, 255, 255, 0.615);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    height: 450px;
+    margin-top: 10%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.card:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    scale: 1.04;
+    background: white;
+}
+
+.hr {
+            border: none; /* Removes default border */
+            height: 2px; /* Sets the height of the line */
+            background-color: #ff6600; /* Sets the background color of the line */
+            margin: 20px 0; /* Adds space above and below the line */
+        }
